@@ -1,0 +1,97 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-a-consistent-app-wide-sparkly-luxury-visual-layer-that-makes-the-ui-feel-noticeably-more-wealthy-premium-while-remaining-child-friendly-e-g-subtle-sparkle-glitter-highlights-starbursts-and-warm-gold-shimmer-accents-without-reducing-readability",
+      "featureTitle": "Add a consistent, app-wide “sparkly luxury” visual layer that makes the UI feel noticeably more wealthy/premium while remaining child-friendly (e.g., subtle sparkle/glitter highlights, starbursts, and warm gold shimmer accents) without reducing readability.",
+      "files": [
+        "frontend/src/components/common/ScreenHeader.tsx",
+        "frontend/src/pages/GamesHubScreen.tsx",
+        "frontend/src/pages/HomeScreen.tsx",
+        "frontend/src/pages/LoginScreen.tsx",
+        "frontend/src/pages/QuizScreen.tsx",
+        "frontend/src/pages/WelcomeScreen.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-reusable-sparkle-styling-utilities-css-tailwind-utilities-and-or-a-small-reusable-react-overlay-component-and-apply-them-to-existing-luxury-surfaces-e-g-luxury-gradient-luxury-card-luxury-surface-so-sparkles-appear-consistently-across-the-app-instead-of-only-on-isolated-icons",
+      "featureTitle": "Implement reusable “sparkle” styling utilities (CSS/Tailwind utilities and/or a small reusable React overlay component) and apply them to existing luxury surfaces (e.g., .luxury-gradient, .luxury-card, .luxury-surface) so sparkles appear consistently across the app instead of only on isolated icons.",
+      "files": [
+        "frontend/src/components/common/ScreenHeader.tsx",
+        "frontend/src/components/common/SparkleOverlay.tsx",
+        "frontend/src/index.css",
+        "frontend/src/pages/LoginScreen.tsx",
+        "frontend/src/pages/WelcomeScreen.tsx",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-keep-animations-and-effects-child-friendly-and-accessible-respect-reduced-motion-preferences-and-ensure-sparkle-animations-are-subtle-no-rapid-flashing-and-do-not-negatively-impact-performance-on-typical-devices",
+      "featureTitle": "Keep animations and effects child-friendly and accessible: respect reduced-motion preferences and ensure sparkle animations are subtle (no rapid flashing) and do not negatively impact performance on typical devices.",
+      "files": [
+        "frontend/src/components/common/SparkleOverlay.tsx",
+        "frontend/src/hooks/usePrefersReducedMotion.ts",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-generated-static-sparkle-glitter-visual-assets-and-use-them-as-overlays-background-textures-served-from-frontend-public-assets-generated-to-reinforce-the-rich-person-aesthetic-across-key-screens",
+      "featureTitle": "Add generated static sparkle/glitter visual assets and use them as overlays/background textures (served from frontend/public/assets/generated) to reinforce the rich-person aesthetic across key screens.",
+      "files": [
+        "frontend/src/components/common/SparkleOverlay.tsx",
+        "frontend/src/pages/GamesHubScreen.tsx",
+        "frontend/src/pages/LoginScreen.tsx",
+        "frontend/src/pages/QuizScreen.tsx",
+        "frontend/src/pages/WelcomeScreen.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

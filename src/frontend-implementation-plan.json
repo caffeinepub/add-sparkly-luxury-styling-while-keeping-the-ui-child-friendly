@@ -1,0 +1,166 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Sparkly luxury visual layer (kid-friendly, accessible, reusable)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Add an app-wide sparkly luxury visual layer (premium, warm gold shimmer) across key screens while keeping UI playful and highly readable.",
+      "acceptanceCriteria": [
+        "Welcome, Login, Home, Games Hub, and Quiz screens visibly include sparkly/premium cues beyond just the cream/gold palette (e.g., sparkle overlay, starburst accents, shimmer highlights).",
+        "Sparkle effects do not obscure text/buttons and maintain high contrast and legibility.",
+        "Visual style remains playful/approachable (kid-friendly) rather than overly dark/serious."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/WelcomeScreen.tsx",
+          "operation": "modify",
+          "description": "Wrap the existing luxury background with a reusable sparkle overlay layer (using the planned SparkleOverlay component) and add subtle corner starburst accents so the screen reads as premium without obscuring the logo/title/buttons."
+        },
+        {
+          "path": "frontend/src/pages/LoginScreen.tsx",
+          "operation": "modify",
+          "description": "Add the same sparkle overlay treatment to the full-screen luxury background and optionally a subtle shimmer/corner accent around the login card; ensure overlay sits behind the Card content and preserves legibility."
+        },
+        {
+          "path": "frontend/src/pages/HomeScreen.tsx",
+          "operation": "modify",
+          "description": "Add sparkly/premium cues to the Home background and to key surfaces (header card / nav area) using the reusable sparkle utilities/component, ensuring the greeting and nav remain high-contrast and readable."
+        },
+        {
+          "path": "frontend/src/pages/GamesHubScreen.tsx",
+          "operation": "modify",
+          "description": "Add a subtle sparkle overlay above the scene background but below content (and optionally a light starburst accent near the header) so scene-based screens still feel rich/premium."
+        },
+        {
+          "path": "frontend/src/pages/QuizScreen.tsx",
+          "operation": "modify",
+          "description": "Add a subtle sparkle overlay above the scene background but below quiz content; keep question/answer contrast strong and avoid overlays that interfere with buttons or feedback states."
+        },
+        {
+          "path": "frontend/src/components/common/ScreenHeader.tsx",
+          "operation": "modify",
+          "description": "Enhance the header surface with a subtle shimmer/sparkle utility class so premium cues appear consistently on scene-based screens that use ScreenHeader."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement reusable sparkle styling utilities (CSS/Tailwind and a small React overlay component) and apply them consistently to luxury surfaces and backgrounds across multiple screens.",
+      "acceptanceCriteria": [
+        "There is a single, reusable approach to adding sparkles (utilities/component) that is used in multiple screens.",
+        "Sparkle layer can be applied to both full-screen backgrounds (e.g., Welcome/Login/Home) and to key cards/headers (e.g., ScreenHeader or major cards) without layout breakage.",
+        "Sparkle styling works in both light and dark mode."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/common/SparkleOverlay.tsx",
+          "operation": "create",
+          "description": "Create a small, reusable React overlay component that can be dropped into full-screen containers or surfaces to render sparkle textures (and optional corner accents) without affecting layout (pointer-events disabled, controlled opacity/z-index)."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add reusable sparkle utility classes that integrate with existing luxury classes (e.g., apply-able alongside .luxury-gradient, .luxury-card, .luxury-surface): include non-obscuring overlay patterns, starburst accent positioning helpers, and dark-mode tuned opacity/contrast settings."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind with any needed keyframes/animations and tokens for gentle shimmer/sparkle motion (slow, subtle) and ensure the utilities can be applied consistently in both light and dark mode."
+        },
+        {
+          "path": "frontend/src/pages/WelcomeScreen.tsx",
+          "operation": "modify",
+          "description": "Apply the reusable sparkle approach (SparkleOverlay and/or sparkle utility classes) on the full-screen background and key hero area so sparkles are not isolated to icons only."
+        },
+        {
+          "path": "frontend/src/pages/LoginScreen.tsx",
+          "operation": "modify",
+          "description": "Apply the same reusable sparkle approach on the full-screen background and optionally to the card frame; ensure no layout shifts and keep the login button text crisp."
+        },
+        {
+          "path": "frontend/src/components/common/ScreenHeader.tsx",
+          "operation": "modify",
+          "description": "Apply sparkle utility styling to ScreenHeader so multiple screens inherit a consistent premium shimmer treatment without duplicating code."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Ensure sparkle effects are accessible and child-friendly: respect reduced-motion, avoid rapid flashing, and keep performance smooth.",
+      "acceptanceCriteria": [
+        "When the user has reduced-motion enabled, sparkle animations are disabled or significantly reduced (static sparkle overlay is acceptable).",
+        "No fast flashing effects; sparkle animations are gentle and slow.",
+        "No noticeable jank during scrolling or interactions on the main screens after sparkles are added."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/usePrefersReducedMotion.ts",
+          "operation": "create",
+          "description": "Add a small hook to detect prefers-reduced-motion so components (e.g., SparkleOverlay) can disable or reduce animations when requested."
+        },
+        {
+          "path": "frontend/src/components/common/SparkleOverlay.tsx",
+          "operation": "modify",
+          "description": "Respect reduced-motion by disabling animated shimmer/twinkle (fall back to static texture) and keep animations slow/subtle; ensure overlay rendering is lightweight (opacity/transform-based) to avoid scroll jank."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add CSS safeguards for accessibility/performance: reduced-motion media query to disable sparkle animations, ensure no rapid flashing keyframes, and use gentle animation timing/opacity so text/buttons remain legible."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add generated static sparkle/glitter assets under frontend/public/assets/generated and wire them into key screens as overlays/background textures (no backend involvement).",
+      "acceptanceCriteria": [
+        "New generated images are present under frontend/public/assets/generated and are referenced directly by the frontend (not via backend).",
+        "At least one generated sparkle texture/overlay is visibly used on Welcome and Login screens; scene-based screens (Games Hub/Quiz) also get a subtle sparkle overlay above the scene background but below content.",
+        "Assets render crisply on common screen sizes without visible tiling seams (or use intentional seamless tiling textures)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/sparkle-overlay-seamless.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated seamless soft gold sparkle/glitter texture asset at this exact path so it can be used as a repeating overlay background texture."
+        },
+        {
+          "path": "frontend/public/assets/generated/sparkle-corners-set.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated corner starburst/shine accent set asset at this exact path for corner/edge premium highlights."
+        },
+        {
+          "path": "frontend/public/assets/generated/glitter-haze-overlay.dim_1920x1080.png",
+          "operation": "create",
+          "description": "Add the generated subtle bokeh + glitter gradient haze overlay asset at this exact path for non-tiling, soft full-screen haze layers."
+        },
+        {
+          "path": "frontend/src/components/common/SparkleOverlay.tsx",
+          "operation": "modify",
+          "description": "Wire the generated assets into the SparkleOverlay component so it can render: frontend/public/assets/generated/sparkle-overlay-seamless.dim_1024x1024.png (tiling texture), frontend/public/assets/generated/glitter-haze-overlay.dim_1920x1080.png (haze layer), and frontend/public/assets/generated/sparkle-corners-set.dim_1024x1024.png (corner accents)."
+        },
+        {
+          "path": "frontend/src/pages/WelcomeScreen.tsx",
+          "operation": "modify",
+          "description": "Reference the generated assets via SparkleOverlay so the Welcome screen visibly uses at least the seamless sparkle texture and/or glitter haze overlay (from frontend/public/assets/generated/sparkle-overlay-seamless.dim_1024x1024.png and frontend/public/assets/generated/glitter-haze-overlay.dim_1920x1080.png) without obscuring the hero content."
+        },
+        {
+          "path": "frontend/src/pages/LoginScreen.tsx",
+          "operation": "modify",
+          "description": "Reference the generated assets via SparkleOverlay so the Login screen visibly uses at least the seamless sparkle texture and/or haze overlay and optional corner accents (including frontend/public/assets/generated/sparkle-corners-set.dim_1024x1024.png) while keeping the Card contents readable."
+        },
+        {
+          "path": "frontend/src/pages/GamesHubScreen.tsx",
+          "operation": "modify",
+          "description": "Place a subtle sparkle overlay above the scene background but below the content using the generated sparkle texture (frontend/public/assets/generated/sparkle-overlay-seamless.dim_1024x1024.png) to avoid tiling seams and preserve scene imagery."
+        },
+        {
+          "path": "frontend/src/pages/QuizScreen.tsx",
+          "operation": "modify",
+          "description": "Place a subtle sparkle overlay above the scene background but below the quiz content using the generated sparkle texture and/or haze (frontend/public/assets/generated/sparkle-overlay-seamless.dim_1024x1024.png and/or frontend/public/assets/generated/glitter-haze-overlay.dim_1920x1080.png) to reinforce the premium look without interfering with buttons."
+        }
+      ]
+    }
+  ]
+}

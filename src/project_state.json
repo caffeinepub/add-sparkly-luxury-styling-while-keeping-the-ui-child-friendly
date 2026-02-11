@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Design-focused project aiming for a luxury, rich-person aesthetic with sparkly elements while remaining child-friendly.",
+  "architectural_notes": [],
+  "known_issues": [
+    "Current design does not read as 'rich/luxury' enough; missing sparkly/premium cues."
+  ],
+  "isFixRequest": true,
+  "imageRequirements": "## Required Images\n- Seamless soft gold sparkle/glitter texture with tiny star specks on transparent background (sparkle-overlay-seamless.dim_1024x1024.png)\n- Corner starburst/shine accent set (4 variations) on transparent background (sparkle-corners-set.dim_1024x1024.png)\n- Subtle bokeh + glitter gradient haze on transparent background (glitter-haze-overlay.dim_1920x1080.png)",
+  "existing_features": [
+    {
+      "id": "feature-add-a-consistent-app-wide-sparkly-luxury-visual-layer-that-makes-the-ui-feel-noticeably-more-wealthy-premium-while-remaining-child-friendly-e-g-subtle-sparkle-glitter-highlights-starbursts-and-warm-gold-shimmer-accents-without-reducing-readability",
+      "title": "Add a consistent, app-wide “sparkly luxury” visual layer that makes the UI feel noticeably more wealthy/premium while remaining child-friendly (e.g., subtle sparkle/glitter highlights, starbursts, and warm gold shimmer accents) without reducing readability.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-reusable-sparkle-styling-utilities-css-tailwind-utilities-and-or-a-small-reusable-react-overlay-component-and-apply-them-to-existing-luxury-surfaces-e-g-luxury-gradient-luxury-card-luxury-surface-so-sparkles-appear-consistently-across-the-app-instead-of-only-on-isolated-icons",
+      "title": "Implement reusable “sparkle” styling utilities (CSS/Tailwind utilities and/or a small reusable React overlay component) and apply them to existing luxury surfaces (e.g., .luxury-gradient, .luxury-card, .luxury-surface) so sparkles appear consistently across the app instead of only on isolated icons.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-keep-animations-and-effects-child-friendly-and-accessible-respect-reduced-motion-preferences-and-ensure-sparkle-animations-are-subtle-no-rapid-flashing-and-do-not-negatively-impact-performance-on-typical-devices",
+      "title": "Keep animations and effects child-friendly and accessible: respect reduced-motion preferences and ensure sparkle animations are subtle (no rapid flashing) and do not negatively impact performance on typical devices.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-sparkle-glitter-visual-assets-and-use-them-as-overlays-background-textures-served-from-frontend-public-assets-generated-to-reinforce-the-rich-person-aesthetic-across-key-screens",
+      "title": "Add generated static sparkle/glitter visual assets and use them as overlays/background textures (served from frontend/public/assets/generated) to reinforce the rich-person aesthetic across key screens.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Enhance visuals to feel more luxurious/wealthy with sparkles and premium styling cues",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Adjust design to be more child-friendly (playful elements) while keeping luxury feel",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Add sparkly luxury styling while keeping the UI child-friendly",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

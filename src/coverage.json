@@ -1,0 +1,120 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-10T18:55:36.528Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 4,
+    "implemented": 4,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Add a consistent, app-wide “sparkly luxury” visual layer that makes the UI feel noticeably more wealthy/premium while remaining child-friendly (e.g., subtle sparkle/glitter highlights, starbursts, and warm gold shimmer accents) without reducing readability.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/WelcomeScreen.tsx",
+          "frontend/src/pages/LoginScreen.tsx",
+          "frontend/src/pages/HomeScreen.tsx",
+          "frontend/src/pages/GamesHubScreen.tsx",
+          "frontend/src/pages/QuizScreen.tsx",
+          "frontend/src/components/common/ScreenHeader.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/WelcomeScreen.tsx",
+          "frontend/src/pages/LoginScreen.tsx",
+          "frontend/src/pages/HomeScreen.tsx",
+          "frontend/src/pages/GamesHubScreen.tsx",
+          "frontend/src/pages/QuizScreen.tsx",
+          "frontend/src/components/common/ScreenHeader.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Implement reusable “sparkle” styling utilities (CSS/Tailwind utilities and/or a small reusable React overlay component) and apply them to existing luxury surfaces (e.g., .luxury-gradient, .luxury-card, .luxury-surface) so sparkles appear consistently across the app instead of only on isolated icons.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/common/SparkleOverlay.tsx",
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/src/pages/WelcomeScreen.tsx",
+          "frontend/src/pages/LoginScreen.tsx",
+          "frontend/src/components/common/ScreenHeader.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/common/SparkleOverlay.tsx",
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/src/pages/WelcomeScreen.tsx",
+          "frontend/src/pages/LoginScreen.tsx",
+          "frontend/src/components/common/ScreenHeader.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Keep animations and effects child-friendly and accessible: respect reduced-motion preferences and ensure sparkle animations are subtle (no rapid flashing) and do not negatively impact performance on typical devices.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/usePrefersReducedMotion.ts",
+          "frontend/src/components/common/SparkleOverlay.tsx",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/usePrefersReducedMotion.ts",
+          "frontend/src/components/common/SparkleOverlay.tsx",
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Add generated static sparkle/glitter visual assets and use them as overlays/background textures (served from frontend/public/assets/generated) to reinforce the rich-person aesthetic across key screens.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/sparkle-overlay-seamless.dim_1024x1024.png",
+          "frontend/public/assets/generated/sparkle-corners-set.dim_1024x1024.png",
+          "frontend/public/assets/generated/glitter-haze-overlay.dim_1920x1080.png",
+          "frontend/src/components/common/SparkleOverlay.tsx",
+          "frontend/src/pages/WelcomeScreen.tsx",
+          "frontend/src/pages/LoginScreen.tsx",
+          "frontend/src/pages/GamesHubScreen.tsx",
+          "frontend/src/pages/QuizScreen.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/generated/sparkle-overlay-seamless.dim_1024x1024.png",
+          "frontend/public/assets/generated/sparkle-corners-set.dim_1024x1024.png",
+          "frontend/public/assets/generated/glitter-haze-overlay.dim_1920x1080.png",
+          "frontend/src/components/common/SparkleOverlay.tsx",
+          "frontend/src/pages/WelcomeScreen.tsx",
+          "frontend/src/pages/LoginScreen.tsx",
+          "frontend/src/pages/GamesHubScreen.tsx",
+          "frontend/src/pages/QuizScreen.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/public/assets/generated/glitter-haze-overlay.dim_1920x1080.png",
+    "frontend/public/assets/generated/sparkle-corners-set.dim_1024x1024.png",
+    "frontend/public/assets/generated/sparkle-overlay-seamless.dim_1024x1024.png",
+    "frontend/src/components/common/ScreenHeader.tsx",
+    "frontend/src/components/common/SparkleOverlay.tsx",
+    "frontend/src/hooks/usePrefersReducedMotion.ts",
+    "frontend/src/index.css",
+    "frontend/src/pages/GamesHubScreen.tsx",
+    "frontend/src/pages/HomeScreen.tsx",
+    "frontend/src/pages/LoginScreen.tsx",
+    "frontend/src/pages/QuizScreen.tsx",
+    "frontend/src/pages/WelcomeScreen.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

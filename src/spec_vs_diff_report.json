@@ -1,0 +1,48 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-10T18:55:36.525Z",
+  "summary": "Diff adds a reusable SparkleOverlay component with reduced-motion awareness and applies sparkle styling across key screens (Welcome, Login, Home, Games Hub, Quiz) plus global Tailwind/CSS utilities. However, the required generated sparkle image assets are not shown as added under frontend/public/assets/generated, and the diff summary suggests additional non-styling feature work in Homework/Timetable/Scene context that was not requested.",
+  "missing_requirements": [
+    {
+      "id": "REQ-4",
+      "requirement": "Add generated static sparkle/glitter visual assets under frontend/public/assets/generated and use them as overlays/background textures on key screens (Welcome/Login, and subtle overlays on Games Hub/Quiz).",
+      "reason": "SparkleOverlay references the required image paths, but the diff does not show any new image files added under frontend/public/assets/generated (only TS/TSX/CSS/config changes are shown). Without the actual assets being added, REQ-4 is not fully implemented.",
+      "evidence": [
+        "frontend/src/components/common/SparkleOverlay.tsx (references /assets/generated/sparkle-overlay-seamless.dim_1024x1024.png, /assets/generated/glitter-haze-overlay.dim_1920x1080.png, /assets/generated/sparkle-corners-set.dim_1024x1024.png)",
+        "Diff summary: ADDED FILES only include frontend/src/components/common/SparkleOverlay.tsx and frontend/src/hooks/usePrefersReducedMotion.ts (no frontend/public/assets/generated additions shown)"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Non-styling functional additions/changes implied for Homework and Timetable CRUD screens.",
+      "reason": "BuildRequest is styling-focused and explicitly lists non-goals as changing gameplay/logic; diff summary text describes full CRUD interfaces for homework and timetable management, which is beyond the requested sparkle/luxury styling scope.",
+      "evidence": [
+        "frontend-file-summaries.txt (entries describing HomeworkScreen and TimetableScreen as full CRUD interfaces)"
+      ]
+    },
+    {
+      "description": "Scene background management context and router/app wiring changes beyond sparkle styling.",
+      "reason": "BuildRequest only asks for styling utilities and overlays; diff summary text indicates new/modified SceneProvider context and router wrapping/route tree updates, which are not explicitly requested for the styling task.",
+      "evidence": [
+        "frontend-file-summaries.txt (entries for frontend/src/App.tsx, frontend/src/routeTree.tsx, frontend/src/contexts/SceneContext.tsx)"
+      ]
+    }
+  ],
+  "confidence": 0.62,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/common/ScreenHeader.tsx",
+    "frontend/src/components/common/SparkleOverlay.tsx",
+    "frontend/src/hooks/usePrefersReducedMotion.ts",
+    "frontend/src/index.css",
+    "frontend/src/pages/GamesHubScreen.tsx",
+    "frontend/src/pages/HomeScreen.tsx",
+    "frontend/src/pages/LoginScreen.tsx",
+    "frontend/src/pages/QuizScreen.tsx",
+    "frontend/src/pages/WelcomeScreen.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

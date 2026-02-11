@@ -1,0 +1,98 @@
+{
+  "kind": "build_request",
+  "title": "Add sparkly luxury styling while keeping the UI child-friendly",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Add a consistent, app-wide “sparkly luxury” visual layer that makes the UI feel noticeably more wealthy/premium while remaining child-friendly (e.g., subtle sparkle/glitter highlights, starbursts, and warm gold shimmer accents) without reducing readability.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "it still doesntt look like it is for a rich person where are the sparkles and stuff agaishh i wanna make it child friendly tho"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Welcome, Login, Home, Games Hub, and Quiz screens visibly include sparkly/premium cues beyond just the cream/gold palette (e.g., sparkle overlay, starburst accents, shimmer highlights).",
+        "Sparkle effects do not obscure text/buttons and maintain high contrast and legibility.",
+        "Visual style remains playful/approachable (kid-friendly) rather than overly dark/serious."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement reusable “sparkle” styling utilities (CSS/Tailwind utilities and/or a small reusable React overlay component) and apply them to existing luxury surfaces (e.g., .luxury-gradient, .luxury-card, .luxury-surface) so sparkles appear consistently across the app instead of only on isolated icons.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "where are the sparkles and stuff"
+        ]
+      },
+      "acceptanceCriteria": [
+        "There is a single, reusable approach to adding sparkles (utilities/component) that is used in multiple screens.",
+        "Sparkle layer can be applied to both full-screen backgrounds (e.g., Welcome/Login/Home) and to key cards/headers (e.g., ScreenHeader or major cards) without layout breakage.",
+        "Sparkle styling works in both light and dark mode."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Keep animations and effects child-friendly and accessible: respect reduced-motion preferences and ensure sparkle animations are subtle (no rapid flashing) and do not negatively impact performance on typical devices.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "i wanna make it child friendly tho"
+        ]
+      },
+      "acceptanceCriteria": [
+        "When the user has reduced-motion enabled, sparkle animations are disabled or significantly reduced (static sparkle overlay is acceptable).",
+        "No fast flashing effects; sparkle animations are gentle and slow.",
+        "No noticeable jank during scrolling or interactions on the main screens after sparkles are added."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add generated static sparkle/glitter visual assets and use them as overlays/background textures (served from frontend/public/assets/generated) to reinforce the rich-person aesthetic across key screens.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "where are the sparkles and stuff"
+        ]
+      },
+      "acceptanceCriteria": [
+        "New generated images are present under frontend/public/assets/generated and are referenced directly by the frontend (not via backend).",
+        "At least one generated sparkle texture/overlay is visibly used on Welcome and Login screens; scene-based screens (Games Hub/Quiz) also get a subtle sparkle overlay above the scene background but below content.",
+        "Assets render crisply on common screen sizes without visible tiling seams (or use intentional seamless tiling textures)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files under frontend/src/components/ui (read-only shadcn components).",
+    "Do not edit frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, or frontend/src/main.tsx (immutable paths).",
+    "Use English for any user-facing text.",
+    "Backend logic and data models must remain unchanged for this styling-focused request."
+  ],
+  "nonGoals": [
+    "Adding new gameplay features or changing quiz/game logic.",
+    "Adding new authentication methods beyond Internet Identity.",
+    "Creating real-time features or external service integrations."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Seamless soft gold sparkle/glitter texture with tiny star specks on transparent background (sparkle-overlay-seamless.dim_1024x1024.png)",
+      "Corner starburst/shine accent set (4 variations) on transparent background (sparkle-corners-set.dim_1024x1024.png)",
+      "Subtle bokeh + glitter gradient haze on transparent background (glitter-haze-overlay.dim_1920x1080.png)"
+    ],
+    "edits": []
+  }
+}

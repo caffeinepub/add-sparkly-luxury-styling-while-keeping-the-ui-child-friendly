@@ -1,0 +1,309 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        /* Luxury cream & gold palette - light mode */
+        --background: 0.98 0.01 60;
+        --foreground: 0.25 0.03 30;
+        --card: 0.99 0.005 60;
+        --card-foreground: 0.25 0.03 30;
+        --popover: 0.99 0.005 60;
+        --popover-foreground: 0.25 0.03 30;
+        --primary: 0.55 0.12 70;
+        --primary-foreground: 0.98 0.01 60;
+        --secondary: 0.65 0.08 200;
+        --secondary-foreground: 0.98 0.01 200;
+        --muted: 0.92 0.01 60;
+        --muted-foreground: 0.50 0.02 30;
+        --accent: 0.70 0.10 40;
+        --accent-foreground: 0.98 0.01 40;
+        --destructive: 0.55 0.18 25;
+        --destructive-foreground: 0.98 0.01 25;
+        --border: 0.88 0.02 60;
+        --input: 0.88 0.02 60;
+        --ring: 0.55 0.12 70;
+        --chart-1: 0.55 0.12 70;
+        --chart-2: 0.65 0.08 200;
+        --chart-3: 0.70 0.10 40;
+        --chart-4: 0.60 0.10 150;
+        --chart-5: 0.50 0.08 300;
+        --sidebar: 0.98 0.01 60;
+        --sidebar-foreground: 0.25 0.03 30;
+        --sidebar-primary: 0.55 0.12 70;
+        --sidebar-primary-foreground: 0.98 0.01 60;
+        --sidebar-accent: 0.92 0.01 60;
+        --sidebar-accent-foreground: 0.25 0.03 30;
+        --sidebar-border: 0.88 0.02 60;
+        --sidebar-ring: 0.55 0.12 70;
+        --success: 0.60 0.12 140;
+        --success-foreground: 0.98 0.01 140;
+        --warning: 0.65 0.14 60;
+        --warning-foreground: 0.25 0.03 60;
+    }
+
+    .dark {
+        /* Luxury dark mode - deep charcoal with warm gold accents */
+        --background: 0.18 0.02 30;
+        --foreground: 0.95 0.01 60;
+        --card: 0.22 0.02 30;
+        --card-foreground: 0.95 0.01 60;
+        --popover: 0.22 0.02 30;
+        --popover-foreground: 0.95 0.01 60;
+        --primary: 0.65 0.12 70;
+        --primary-foreground: 0.18 0.02 30;
+        --secondary: 0.55 0.08 200;
+        --secondary-foreground: 0.95 0.01 200;
+        --muted: 0.28 0.02 30;
+        --muted-foreground: 0.65 0.02 60;
+        --accent: 0.60 0.10 40;
+        --accent-foreground: 0.95 0.01 40;
+        --destructive: 0.50 0.18 25;
+        --destructive-foreground: 0.95 0.01 25;
+        --border: 0.32 0.02 30;
+        --input: 0.32 0.02 30;
+        --ring: 0.65 0.12 70;
+        --chart-1: 0.65 0.12 70;
+        --chart-2: 0.55 0.08 200;
+        --chart-3: 0.60 0.10 40;
+        --chart-4: 0.50 0.10 150;
+        --chart-5: 0.45 0.08 300;
+        --sidebar: 0.22 0.02 30;
+        --sidebar-foreground: 0.95 0.01 60;
+        --sidebar-primary: 0.65 0.12 70;
+        --sidebar-primary-foreground: 0.18 0.02 30;
+        --sidebar-accent: 0.28 0.02 30;
+        --sidebar-accent-foreground: 0.95 0.01 60;
+        --sidebar-border: 0.32 0.02 30;
+        --sidebar-ring: 0.65 0.12 70;
+        --success: 0.55 0.12 140;
+        --success-foreground: 0.95 0.01 140;
+        --warning: 0.60 0.14 60;
+        --warning-foreground: 0.18 0.02 60;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+        font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+    }
+
+    h1 {
+        @apply text-3xl md:text-4xl;
+    }
+
+    h2 {
+        @apply text-2xl md:text-3xl;
+    }
+
+    h3 {
+        @apply text-xl md:text-2xl;
+    }
+}
+
+@layer utilities {
+    .scene-bg {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* Fallback gradient for when images fail to load */
+        background-color: oklch(0.92 0.01 60);
+    }
+
+    .luxury-gradient {
+        background: linear-gradient(135deg, oklch(0.98 0.01 60) 0%, oklch(0.95 0.02 50) 100%);
+    }
+
+    .dark .luxury-gradient {
+        background: linear-gradient(135deg, oklch(0.18 0.02 30) 0%, oklch(0.22 0.02 40) 100%);
+    }
+
+    .luxury-card {
+        background-color: oklch(var(--card));
+        border-width: 1px;
+        border-color: oklch(var(--border) / 0.5);
+        backdrop-filter: blur(4px);
+    }
+
+    .luxury-card-sparkle {
+        background-color: oklch(var(--card) / 0.95);
+        border-width: 1px;
+        border-color: oklch(var(--primary) / 0.15);
+        backdrop-filter: blur(8px);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .luxury-card-sparkle::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, oklch(var(--primary) / 0.05) 0%, transparent 50%, oklch(var(--accent) / 0.05) 100%);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .luxury-surface {
+        background-color: oklch(var(--card) / 0.8);
+        backdrop-filter: blur(12px);
+        border-width: 1px;
+        border-color: oklch(var(--border) / 0.3);
+    }
+
+    .luxury-surface-sparkle {
+        background-color: oklch(var(--card) / 0.9);
+        backdrop-filter: blur(12px);
+        border-width: 1px;
+        border-color: oklch(var(--primary) / 0.15);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .luxury-surface-sparkle::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, transparent 0%, oklch(var(--primary) / 0.03) 50%, transparent 100%);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    /* Sparkle text effect */
+    .sparkle-text {
+        position: relative;
+        background: linear-gradient(135deg, oklch(var(--foreground)) 0%, oklch(var(--primary)) 50%, oklch(var(--foreground)) 100%);
+        background-size: 200% 200%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        .sparkle-text {
+            animation: sparkle-gradient 8s ease-in-out infinite;
+        }
+    }
+
+    /* Sparkle glow effect for images/icons */
+    .sparkle-glow {
+        position: relative;
+        animation: sparkle-pulse 3s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .sparkle-glow {
+            animation: none;
+        }
+    }
+
+    /* Sparkle icon container */
+    .sparkle-icon {
+        position: relative;
+        animation: sparkle-float 4s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .sparkle-icon {
+            animation: none;
+        }
+    }
+
+    /* Sparkle button enhancement */
+    .sparkle-button {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .sparkle-button::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, transparent 0%, oklch(var(--primary-foreground) / 0.2) 50%, transparent 100%);
+        transform: translateX(-100%);
+        pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        .sparkle-button:hover::after {
+            animation: sparkle-shine 1.5s ease-in-out;
+        }
+    }
+
+    /* Sparkle shimmer animation for overlay */
+    @media (prefers-reduced-motion: no-preference) {
+        .sparkle-shimmer {
+            animation: sparkle-shimmer 20s linear infinite;
+        }
+    }
+}
+
+@layer components {
+    /* Keyframes for sparkle animations */
+    @keyframes sparkle-gradient {
+        0%, 100% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+    }
+
+    @keyframes sparkle-pulse {
+        0%, 100% {
+            filter: drop-shadow(0 0 8px oklch(var(--primary) / 0.3));
+        }
+        50% {
+            filter: drop-shadow(0 0 16px oklch(var(--primary) / 0.5));
+        }
+    }
+
+    @keyframes sparkle-float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-4px);
+        }
+    }
+
+    @keyframes sparkle-shine {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(200%);
+        }
+    }
+
+    @keyframes sparkle-shimmer {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 512px 512px;
+        }
+    }
+
+    /* Ensure reduced motion is respected */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+}
